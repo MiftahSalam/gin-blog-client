@@ -90,4 +90,34 @@ describe('UserService', () => {
       httpMock.verify();
     });
   });
+
+  describe('attempAuth', () => {
+    let httpMock: HttpTestingController;
+
+    beforeEach(() => {
+      httpMock = TestBed.inject(HttpTestingController);
+      service.purgeAuth();
+    });
+
+    it('should set auth', () => {
+      service
+        .attempAuth('login', {
+          username: mockUser.username,
+          password: '123456',
+        })
+        .subscribe((data) => {
+          console.log('data', data);
+          const savedUser = window.localStorage.jwtToken;
+          expect(savedUser).toEqual(mockUser.token);
+        });
+
+      const req = httpMock.expectOne(`${environment.apiUrl}/users/login`);
+      expect(req.request.method).toBe('POST');
+      req.flush(mockUser);
+    });
+
+    afterEach(() => {
+      httpMock.verify();
+    });
+  });
 });
