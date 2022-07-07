@@ -32,6 +32,7 @@ export class ShowAuthedDirective implements OnInit {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   @Input()
   set appShowAuthed(condition: boolean) {
     this.condition = condition;
