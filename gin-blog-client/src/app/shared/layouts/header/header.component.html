@@ -16,6 +16,16 @@
       <li class="nav-item">
         <a routerLink="/editor" routerLinkActive="active"><i class="ion-compose"></i>&nbsp;New Article</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/settings" routerLinkActive="active" ><i class="ion-gear-a"></i>&nbsp;Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/profile', currentUser.username]"
+        routerLinkActive="active">
+        <img [src]="currentUser.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'" *ngIf="currentUser.image" class="user-pic" alt="user image" />
+        {{ currentUser.username }}
+      </a>
+      </li>
     </ul>
   </div>
 </nav>
