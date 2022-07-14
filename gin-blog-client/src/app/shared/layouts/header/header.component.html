@@ -1,9 +1,14 @@
 <nav class="navbar navbar-light">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Gin Blog</a>
+    <a class="navbar-brand" routerLink="/">Angular-Gin Blog</a>
     <ul *appShowAuthed="false" class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
         <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+          Sign in
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/register" routerLinkActive="active">Sign up</a>
@@ -17,14 +22,15 @@
         <a routerLink="/editor" routerLinkActive="active"><i class="ion-compose"></i>&nbsp;New Article</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/settings" routerLinkActive="active" ><i class="ion-gear-a"></i>&nbsp;Settings</a>
+        <a class="nav-link" routerLink="/settings" routerLinkActive="active"><i
+            class="ion-gear-a"></i>&nbsp;Settings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/profile', currentUser.username]"
-        routerLinkActive="active">
-        <img [src]="currentUser.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'" *ngIf="currentUser.image" class="user-pic" alt="user image" />
-        {{ currentUser.username }}
-      </a>
+        <a class="nav-link" [routerLink]="['/profile', currentUser.username]" routerLinkActive="active">
+          <img [src]="currentUser.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'"
+            *ngIf="currentUser.image" class="user-pic" alt="user image" />
+          {{ currentUser.username }}
+        </a>
       </li>
     </ul>
   </div>

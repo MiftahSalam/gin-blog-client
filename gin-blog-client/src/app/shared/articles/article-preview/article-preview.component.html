@@ -1,6 +1,6 @@
 <div class="article-preview">
   <app-article-meta [article]="article">
-    <app-favorite [article]="article" (toggle)="onToggleFavorite($event)" class="full-xs-right">{{ article.favoritesCount }}</app-favorite>
+    <app-favorite [article]="article" (toggle)="onToggleFavorite($event)" class="pull-xs-right">{{ article.favoritesCount }}</app-favorite>
   </app-article-meta>
 
   <a [routerLink]="['/article', article.slug]" class="preview-link">

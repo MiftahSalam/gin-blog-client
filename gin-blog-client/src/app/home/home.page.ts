@@ -56,6 +56,9 @@ export class HomePage implements OnInit {
   }
 
   setListTo(type: string = '', filters = {}) {
+    // console.log('type', type);
+    // console.log('this.isAuthenticated', this.isAuthenticated);
+
     if (type === 'feed' && !this.isAuthenticated) {
       this.router.navigateByUrl('/login');
       return;

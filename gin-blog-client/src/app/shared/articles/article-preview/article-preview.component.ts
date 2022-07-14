@@ -26,6 +26,8 @@ export class ArticlePreviewComponent implements OnInit {
   onToggleFavorite(favorited: boolean) {
     this.article.favorited = favorited;
 
+    // console.log('this.article', this.article);
+
     if (favorited) {
       this.article.favoritesCount++;
     } else {

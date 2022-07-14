@@ -65,6 +65,10 @@ export class ArticleListComponent implements OnInit {
         new Array(Math.ceil(data.articlesCount / this.limit)),
         (val, index) => index + 1
       );
+      // console.log('totalPages', this.totalPages);
+      // console.log('articlesCount', data.articlesCount);
+      // console.log('limit', this.limit);
+
       this.cd.markForCheck();
     });
   }

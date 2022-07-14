@@ -10,6 +10,9 @@ import { FooterComponent } from './shared/layouts/footer/footer.component';
 import { HeaderComponent } from './shared/layouts/header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { HomePageModule } from './home/home.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -19,6 +22,10 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     SharedModule,
     CoreModule,
+    HomePageModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
