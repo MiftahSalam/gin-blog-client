@@ -50,9 +50,11 @@ export class UserService {
     const route = type === 'login' ? '/login' : '';
 
     return this.apiService.post(`users${route}`, { user: credentials }).pipe(
-      map((data: User) => {
-        this.setAuth(data);
-        return data;
+      map((data: { user: User }) => {
+        console.log('core-service-users-attempAuth response data', data);
+
+        this.setAuth(data?.user);
+        return data?.user;
       })
     );
   }
