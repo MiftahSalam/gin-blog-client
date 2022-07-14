@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
 import { HomePageModule } from './home/home.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
+import { AuthPageModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -23,6 +24,7 @@ import { environment } from 'src/environments/environment';
     SharedModule,
     CoreModule,
     HomePageModule,
+    AuthPageModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),

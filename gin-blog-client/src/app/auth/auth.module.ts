@@ -1,0 +1,24 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { AuthPageRoutingModule } from './auth-routing.module';
+
+import { AuthPage } from './auth.page';
+import { SharedModule } from '../shared/shared.module';
+import { NoAuthGuardService } from './no-auth-guard.service';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    AuthPageRoutingModule,
+    SharedModule,
+  ],
+  declarations: [AuthPage],
+  providers: [NoAuthGuardService],
+})
+export class AuthPageModule {}
