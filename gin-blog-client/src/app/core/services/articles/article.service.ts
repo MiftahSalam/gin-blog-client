@@ -22,7 +22,7 @@ export class ArticleService {
     });
 
     return this.apiService.get(
-      `article${config.type === 'feed' ? '/feed' : ''}`,
+      `article${config.type === 'feed' ? '/feed/' : '/'}`,
       new HttpParams({ fromObject: params })
     );
   }
