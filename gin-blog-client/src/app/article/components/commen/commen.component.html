@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-block">
+    <p class="card-text">{{ commnet.body }}</p>
+  </div>
+  <div class="card-footer">
+    <a class="comment-author" [routerLink]="['/profile', commnet.author.username]">
+      <img [src]="commnet.author.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'" alt="author image" class="comment-author-img" />
+    </a>
+    &nbsp;
+    <a class="comment-author" [routerLink]="['/profile', commnet.author.username]">
+      {{ commnet.author.username }}
+    </a>
+    <span class="date-posted">{{ commnet.createdAt | date: 'longDate'}}</span>
+    <span class="mod-options" [hidden]="!canModify">
+      <i class="ion-trash-a" (click)="deleteClicked()"></i>
+    </span>
+  </div>
+</div>
