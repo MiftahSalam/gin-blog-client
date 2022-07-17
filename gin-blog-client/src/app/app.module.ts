@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { AuthPageModule } from './auth/auth.module';
 import { ArticlePageModule } from './article/article.module';
 import { EditorPageModule } from './editor/editor.module';
+import { ProfilePageModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -29,6 +30,7 @@ import { EditorPageModule } from './editor/editor.module';
     AuthPageModule,
     ArticlePageModule,
     EditorPageModule,
+    ProfilePageModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),

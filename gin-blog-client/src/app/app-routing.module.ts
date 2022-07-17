@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'editor',
     loadChildren: () => import('./editor/editor.module').then( m => m.EditorPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({
