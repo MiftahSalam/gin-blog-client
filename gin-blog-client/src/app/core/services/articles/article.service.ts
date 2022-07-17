@@ -44,7 +44,7 @@ export class ArticleService {
         .pipe(map((data) => data?.article));
     } else {
       return this.apiService
-        .post(`article`, { article: article })
+        .post(`article/`, { article: article })
         .pipe(map((data) => data?.article));
     }
   }
