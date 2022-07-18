@@ -15,19 +15,28 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
+    loadChildren: () =>
+      import('./auth/auth.module').then((m) => m.AuthPageModule),
   },
   {
     path: 'article',
-    loadChildren: () => import('./article/article.module').then( m => m.ArticlePageModule)
+    loadChildren: () =>
+      import('./article/article.module').then((m) => m.ArticlePageModule),
   },
   {
     path: 'editor',
-    loadChildren: () => import('./editor/editor.module').then( m => m.EditorPageModule)
+    loadChildren: () =>
+      import('./editor/editor.module').then((m) => m.EditorPageModule),
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfilePageModule),
+  },
+  {
+    path: 'settings',
+    loadChildren: () =>
+      import('./setting/setting.module').then((m) => m.SettingPageModule),
   },
 ];
 

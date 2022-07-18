@@ -17,6 +17,7 @@ import { AuthPageModule } from './auth/auth.module';
 import { ArticlePageModule } from './article/article.module';
 import { EditorPageModule } from './editor/editor.module';
 import { ProfilePageModule } from './profile/profile.module';
+import { SettingPageModule } from './setting/setting.module';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -31,6 +32,7 @@ import { ProfilePageModule } from './profile/profile.module';
     ArticlePageModule,
     EditorPageModule,
     ProfilePageModule,
+    SettingPageModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
