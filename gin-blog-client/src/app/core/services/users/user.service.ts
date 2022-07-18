@@ -20,7 +20,7 @@ export class UserService {
 
   populate() {
     if (this.jwtService.getToken()) {
-      this.apiService.get('users').subscribe(
+      this.apiService.get('user/').subscribe(
         (data) => {
           this.setAuth(data.user);
         },
@@ -35,7 +35,7 @@ export class UserService {
 
   setAuth(user: User) {
     console.log('user', user);
-    this.jwtService.saveToken(user?.token);
+    this.jwtService.saveToken(user.token || undefined);
     this.currentUserSubject.next(user);
     this.isAuthenticatedSubject.next(true);
   }
@@ -64,7 +64,7 @@ export class UserService {
   }
 
   update(user): Observable<User> {
-    return this.apiService.put('users/', { user }).pipe(
+    return this.apiService.put('user/', { user }).pipe(
       map((data) => {
         this.currentUserSubject.next(data.user);
         return data.user;
