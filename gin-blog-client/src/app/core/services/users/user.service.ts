@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subscription } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { User } from '../../models/users/user';
 import { ApiService } from '../api.service';
@@ -19,17 +19,36 @@ export class UserService {
   constructor(private apiService: ApiService, private jwtService: JwtService) {}
 
   populate() {
+    console.log('core-service-users-populate');
     if (this.jwtService.getToken()) {
       this.apiService.get('user/').subscribe(
         (data) => {
           this.setAuth(data.user);
         },
         (err) => {
+          console.log('core-service-users-populate get user failed');
           this.purgeAuth();
         }
       );
     } else {
+      console.log('core-service-users-populate get token failed');
       this.purgeAuth();
+    }
+  }
+
+  checkAuth() {
+    console.log(
+      'core-service-users-checkAuth token',
+      this.jwtService.getToken()
+    );
+    if (this.jwtService.getToken() === null) {
+      console.log(
+        'core-service-users-checkAuth currentUserSubject',
+        this.currentUserSubject.value
+      );
+      if (this.currentUserSubject.value.username) {
+        this.purgeAuth();
+      }
     }
   }
 
@@ -41,6 +60,7 @@ export class UserService {
   }
 
   purgeAuth() {
+    console.log('core-service-users-purgeAuth');
     this.jwtService.destroyToken();
     this.currentUserSubject.next({} as User);
     this.isAuthenticatedSubject.next(false);
