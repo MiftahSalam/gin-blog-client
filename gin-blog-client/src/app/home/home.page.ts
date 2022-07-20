@@ -56,8 +56,9 @@ export class HomePage implements OnInit {
   }
 
   setListTo(type: string = '', filters = {}) {
-    // console.log('type', type);
-    // console.log('this.isAuthenticated', this.isAuthenticated);
+    this.updateAuth();
+    console.log('home-page-setListTo type', type);
+    console.log('home-page-setListTo isAuthenticated', this.isAuthenticated);
 
     if (type === 'feed' && !this.isAuthenticated) {
       this.router.navigateByUrl('/login');
@@ -65,5 +66,13 @@ export class HomePage implements OnInit {
     }
 
     this.listConfig = { type, filters };
+  }
+
+  updateAuth() {
+    console.log('home-page-updateAuth');
+    this.userService.checkAuth();
+    this.userService.isAuthenticated.subscribe((authenticated) => {
+      this.isAuthenticated = authenticated;
+    });
   }
 }
