@@ -41,7 +41,7 @@ export class EditorPage implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data: { article: Article }) => {
-      console.log('editor-page NgOninit data', data);
+      // console.log('editor-page NgOninit data', data);
       if (data.article) {
         this.article = data.article;
         this.articleForm.patchValue(data.article);
@@ -56,8 +56,8 @@ export class EditorPage implements OnInit {
 
   addTag() {
     const tag = this.tagField.value;
-    console.log('editor-page-addTag tag', tag);
-    console.log('editor-page-addTag tagList', this.article.tagList);
+    // console.log('editor-page-addTag tag', tag);
+    // console.log('editor-page-addTag tagList', this.article.tagList);
     if (this.article.tagList.indexOf(tag) < 0) {
       this.article.tagList.push(tag);
     }
@@ -69,8 +69,8 @@ export class EditorPage implements OnInit {
     this.article.tagList = this.article.tagList.filter(
       (tag) => tag !== tagName
     );
-    console.log('editor-page-addTag tag remove', tagName);
-    console.log('editor-page-addTag new tagList', this.article.tagList);
+    // console.log('editor-page-removeTag tag remove', tagName);
+    // console.log('editor-page-removeTag new tagList', this.article.tagList);
   }
 
   submitForm() {

@@ -30,7 +30,7 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {
     this.route.parent.data.subscribe(
       (data: { profile: { profile: Profile } }) => {
-        console.log('profile-component-article-ngOnInit data', data);
+        // console.log('profile-component-article-ngOnInit data', data);
         this.profile = data.profile.profile;
         this.articlesConfig = {
           type: 'all',

@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    console.log('app-componenet-ngOnInit');
     this.userService.populate();
   }
 }

@@ -33,8 +33,6 @@ export class ListErrorsComponent implements OnInit {
   }
 
   trackByFn(index, item) {
-    console.log('tes');
-
     return index;
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
+import { ReplaySubject } from 'rxjs';
 ('jwt-decode');
 
 @Injectable({
@@ -10,10 +11,10 @@ export class JwtService {
 
   getToken(): string {
     if (window.localStorage.jwtToken) {
-      console.log(
-        'core-services-users-jwtservice-gettoken jwtToken',
-        window.localStorage.jwtToken
-      );
+      // console.log(
+      //   'core-services-users-jwtservice-gettoken jwtToken',
+      //   window.localStorage.jwtToken
+      // );
       const decodedToken: { exp: number; id: number } = jwtDecode(
         window.localStorage.jwtToken
       );
@@ -37,7 +38,8 @@ export class JwtService {
         this.destroyToken();
       }
     }
-    return window.localStorage.jwtToken;
+
+    return window.localStorage.jwtToken || null;
   }
 
   saveToken(token: string) {

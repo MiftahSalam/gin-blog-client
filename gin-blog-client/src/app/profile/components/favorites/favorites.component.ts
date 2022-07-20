@@ -26,7 +26,7 @@ export class FavoritesComponent implements OnInit {
   ngOnInit() {
     this.route.parent.data.subscribe(
       (data: { profile: { profile: Profile } }) => {
-        console.log('profile-component-favorites-ngOnInit data', data);
+        // console.log('profile-component-favorites-ngOnInit data', data);
         this.profile = data.profile.profile;
         this.favoritesConfig = { ...this.favoritesConfig };
         this.favoritesConfig.filters.favorited = this.profile.username;

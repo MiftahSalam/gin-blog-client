@@ -32,11 +32,11 @@ export class CommenComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.userService.currentUser.subscribe((data) => {
-      console.log('article-components-comment NgOninit data', data);
-      console.log(
-        'article-components-comment NgOninit this.commnet.author',
-        this.commnet.author
-      );
+      // console.log('article-components-comment NgOninit data', data);
+      // console.log(
+      //   'article-components-comment NgOninit this.commnet.author',
+      //   this.commnet.author
+      // );
       this.canModify = data.username === this.commnet.author.username;
       this.cd.markForCheck();
     });

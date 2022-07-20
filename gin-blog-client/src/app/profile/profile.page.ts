@@ -25,7 +25,7 @@ export class ProfilePage implements OnInit {
     this.route.data
       .pipe(
         concatMap((data: { profile: { profile: Profile } }) => {
-          console.log('profile-page-ngOnInit data', data);
+          // console.log('profile-page-ngOnInit data', data);
           this.profile = data.profile.profile;
           return this.userService.currentUser.pipe(
             tap((user: User) => {
